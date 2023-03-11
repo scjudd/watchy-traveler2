@@ -38,7 +38,9 @@ class Traveler2Watchface : public Watchy {
 
       char suffix[3];
       uint16_t lastDigit = currentTime.Day % 10;
-      if (lastDigit == 1) {
+      if (currentTime.Day >= 11 && currentTime.Day <= 19) {
+        strcpy(suffix, "th");
+      } else if (lastDigit == 1) {
         strcpy(suffix, "st");
       } else if (lastDigit == 2) {
         strcpy(suffix, "nd");
